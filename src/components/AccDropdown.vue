@@ -3,7 +3,7 @@
     <button 
       role="combobox"
       :aria-expanded="isExpanded"
-      @click="toggleExpanded" 
+      @click="toggleExpanded()" 
       class="dropdown"
       @keydown.up="keydownUp()"
       @keydown.down="keydownDown()"
@@ -12,16 +12,16 @@
       @blur="onBlur()"
     >
       <slot name="button">
-        {{ selectedItem.content }}
+        {{ selectedItem?.content }}
       </slot>
     </button>
-    <ul v-if="isExpanded" class="list-item-wrapper" :aria-activedescendant="itemUnderCursor?.label ?? undefined">
+    <ul v-if="isExpanded" class="list-item-wrapper" :aria-activedescendant="itemUnderCursor?.content ?? undefined">
       <li 
         v-for="(item, index) in items"
-        :key="item.label"
-        :id="item.label"
+        :key="item.content"
+        :id="item.content"
         @mouseover="itemSelectionCursor = index"
-        @click="onItemClicked" 
+        @click="onItemClicked(index)" 
         :class="['list-item', {'under-cursor': itemSelectionCursor === index} ]"
         v-text="item.content" 
         role="option" 
