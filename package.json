@@ -1,11 +1,16 @@
 {
-  "name": "wai2",
-  "version": "0.0.0",
+  "name": "@wai/comps",
+  "version": "0.0.2",
+  "license": "GPL-2.0",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview"
   },
+  "module": "dist/comps.es.js",
+  "main": "dist/comps.umd.js",
+  "browser": "dist/comps.umd.js",
+  "unpkg": "dist/comps.umd.js",
   "dependencies": {
     "vue": "^3.0.5"
   },

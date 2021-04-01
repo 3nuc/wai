@@ -6,9 +6,12 @@ import path from 'path'
 export default defineConfig({
   plugins: [vue()],
   build: {
-    entry: path.resolve(__dirname, 'lib/main.ts'),
-    name: 'MyLib'
+  lib: {
+    entry: path.resolve(__dirname, 'index.ts'),
+    name: 'MyLib',
+    formats: ['es', 'umd']
   },
+  sourcemap: true,
   rollupOptions: {
     external: ['vue'],
     output: {
@@ -17,4 +20,5 @@ export default defineConfig({
       }
     }
   }
-})
+}
+},)
